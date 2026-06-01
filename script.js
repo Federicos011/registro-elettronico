@@ -326,3 +326,51 @@ function calcolaEsitoFinale() {
 
     }
 }
+localStorage.setItem("voti", listaVoti.innerHTML);
+window.onload = function() {
+    let votiSalvati = localStorage.getItem("voti");
+
+    if (votiSalvati) {
+        document.getElementById("lista-voti").innerHTML = votiSalvati;
+    }
+}
+localStorage.setItem(
+    "assenze",
+    document.getElementById("lista-assenze").innerHTML
+);
+let assenzeSalvate = localStorage.getItem("assenze");
+
+if (assenzeSalvate) {
+    document.getElementById("lista-assenze").innerHTML =
+        assenzeSalvate;
+}
+localStorage.setItem(
+    "avvisi",
+    document.getElementById("lista-avvisi").innerHTML
+);
+let avvisiSalvati = localStorage.getItem("avvisi");
+
+if (avvisiSalvati) {
+    document.getElementById("lista-avvisi").innerHTML =
+        avvisiSalvati;
+}
+localStorage.setItem(
+    "note",
+    document.getElementById("lista-note").innerHTML
+);
+let noteSalvate = localStorage.getItem("note");
+
+if (noteSalvate) {
+    document.getElementById("lista-note").innerHTML =
+        noteSalvate;
+}localStorage.setItem(
+    "ricevimenti",
+    document.getElementById("lista-ricevimenti").innerHTML
+);
+let ricevimentiSalvati =
+    localStorage.getItem("ricevimenti");
+
+if (ricevimentiSalvati) {
+    document.getElementById("lista-ricevimenti").innerHTML =
+        ricevimentiSalvati;
+}
