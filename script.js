@@ -231,7 +231,7 @@ function accedi() {
 
     if (
         utente === "maestro Fede" &&
-        password === "Educazione 2026"
+        password === "Federico"
     ) {
 
         ruolo = "docente";
@@ -244,7 +244,7 @@ function accedi() {
 
     else if (
         utente === "Genitori" &&
-        password === "Scuola 2026"
+        password === "1234"
     ) {
 
         ruolo = "genitore";
