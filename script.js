@@ -1,33 +1,85 @@
-let listaVoti = document.getElementById("lista-voti");
+let ruolo = "";
+
+// LOGIN
+
+function accedi() {
+
+    let utente =
+        document.getElementById("utente").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    if (
+        utente === "maestro Fede" &&
+        password === "Federico"
+    ) {
+
+        ruolo = "docente";
+
+        document.getElementById("login").style.display =
+            "none";
+
+        document.getElementById("registro").style.display =
+            "block";
+
+        alert("Benvenuto Federico");
+    }
+
+    else if (
+        utente === "Genitori" &&
+        password === "1234"
+    ) {
+
+        ruolo = "genitore";
+
+        document.getElementById("login").style.display =
+            "none";
+
+        document.getElementById("registro").style.display =
+            "block";
+
+        alert("Benvenuti Alessio e Nives");
+    }
+
+    else {
+
+        alert("Utente o password errati");
+
+    }
+}
+
+// VOTI
 
 function aggiungiVoto() {
+
     let materia = prompt("Materia:");
     let voto = prompt("Voto:");
 
     if (materia && voto) {
-        let li = document.createElement("li");
-        li.textContent = materia + ": " + voto;
 
-        listaVoti.appendChild(li);
+        let lista =
+            document.getElementById("lista-voti");
 
-        localStorage.setItem(
-            "voti",
-            listaVoti.innerHTML
-        );
+        let li =
+            document.createElement("li");
+
+        li.textContent =
+            materia + ": " + voto;
+
+        lista.appendChild(li);
     }
 }
 
 function eliminaUltimoVoto() {
 
-    if (listaVoti.lastElementChild) {
+    let lista =
+        document.getElementById("lista-voti");
 
-        listaVoti.removeChild(
-            listaVoti.lastElementChild
-        );
+    if (lista.lastElementChild) {
 
-        localStorage.setItem(
-            "voti",
-            listaVoti.innerHTML
+        lista.removeChild(
+            lista.lastElementChild
         );
     }
 }
@@ -41,13 +93,15 @@ function calcolaMediaVoti() {
         lista.getElementsByTagName("li");
 
     let somma = 0;
-    let numeroVoti = 0;
+    let numero = 0;
 
     for (let i = 0; i < voti.length; i++) {
 
-        let testo = voti[i].textContent;
+        let testo =
+            voti[i].textContent;
 
-        let parti = testo.split(":");
+        let parti =
+            testo.split(":");
 
         let voto =
             parseFloat(parti[1]);
@@ -55,19 +109,20 @@ function calcolaMediaVoti() {
         if (!isNaN(voto)) {
 
             somma += voto;
-            numeroVoti++;
+            numero++;
 
         }
     }
 
-    if (numeroVoti === 0) {
+    if (numero === 0) {
 
         alert("Nessun voto presente");
         return;
 
     }
 
-    let media = somma / numeroVoti;
+    let media =
+        somma / numero;
 
     document.getElementById(
         "media-voti"
@@ -75,70 +130,3 @@ function calcolaMediaVoti() {
         "Media voti: " +
         media.toFixed(2);
 }
-
-function aggiungiAssenza() {
-
-    let elementoAssenze =
-        document.getElementById(
-            "assenze"
-        );
-
-    if (!elementoAssenze) {
-
-        alert(
-            "Elemento assenze non trovato!"
-        );
-
-        return;
-    }
-
-    let numero =
-        parseInt(
-            elementoAssenze.textContent
-        ) || 0;
-
-    numero++;
-
-    elementoAssenze.textContent =
-        numero + " assenze";
-}
-function aggiungiAvviso() {
-    let ruolo = "";
-
-    function accedi() {
-    
-        let utente = document.getElementById("utente").value;
-        let password = document.getElementById("password").value;
-    
-        if (
-            utente === "maestro Fede" &&
-            password === "Federico"
-        ) {
-    
-            ruolo = "docente";
-    
-            document.getElementById("login").style.display = "none";
-            document.getElementById("registro").style.display = "block";
-    
-            alert("Benvenuto Federico");
-        }
-    
-        else if (
-            utente === "Genitori" &&
-            password === "1234"
-        ) {
-    
-            ruolo = "genitore";
-    
-            document.getElementById("login").style.display = "none";
-            document.getElementById("registro").style.display = "block";
-    
-            alert("Benvenuti Alessio e Nives");
-        }
-    
-        else {
-    
-            alert("Utente o password errati");
-    
-        }
-    }
