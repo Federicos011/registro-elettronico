@@ -1,122 +1,161 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8"> 
-<title>Registro Elettronico</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Education Software</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div id="login">
 
         <h2>Accesso Registro Elettronico</h2>
-    
+
         <input type="text" id="utente" placeholder="Utente">
-    
+
         <br><br>
-    
+
         <input type="text" id="password" placeholder="Password">
-    
+
         <br><br>
-    
+
         <button onclick="accedi()">Accedi</button>
-    
+
     </div>
-    
+
     <div id="registro" style="display:none;">
-<h1>Registro elettronico</h1>
-<div class="card">
- <h2 id="nome-studente">Studente: Giulio Cucinotta </h2>
- <p>Classe: 3G </p>
-<p>Anno scolastico: 2025/2026</p>
-<h3>Voti</h3>
-<ul id="lista-voti">
- <li>Matematica: 8</li>
-<li>Italiano: 7</li>
-</ul>
-<button onclick="aggiungiVoto()">Aggiungi voto</button>
-<button onclick="eliminaUltimoVoto()">Elimina ultimo voto</button>
-</ul>
-<p id="media-voti">Media voti: ---</p>
 
-<button onclick="calcolaMediaVoti()">
-    Calcola media voti
-</button>
-        
-<h3>Assenze</h3>
-<p id="assenze">3 assenze</p>
+        <h1>Registro Elettronico</h1>
 
-<button onclick="aggiungiAssenza()">
-    Aggiungi assenza
-</button>
-<h3>Avvisi</h3>
+        <h2 id="nome-studente">Studente: Giulio Cucinotta</h2>
 
-<ul id="lista-avvisi">
-    <li>Domani verifica di storia.</li>
-</ul>
+        <p>Classe: 3G</p>
 
-<button onclick="aggiungiAvviso()">Aggiungi avviso</button>
-<button onclick="eliminaPrimoAvviso()">Elimina primo avviso</button>
-</div>
-<script src="script.js"></script>
+        <p>Anno scolastico: 2025/2026</p>
+
+        <hr>
+
+        <h3>Voti</h3>
+
+        <ul id="lista-voti">
+            <li>Matematica: 8</li>
+            <li>Italiano: 7</li>
+        </ul>
+
+        <button onclick="aggiungiVoto()">Aggiungi voto</button>
+        <button onclick="eliminaUltimoVoto()">Elimina ultimo voto</button>
+
+        <p id="media-voti">Media voti: ---</p>
+
+        <button onclick="calcolaMediaVoti()">
+            Calcola media voti
+        </button>
+
+        <hr>
+
+        <h3>Assenze</h3>
+
+        <p id="assenze">3 assenze</p>
+
+        <button onclick="aggiungiAssenza()">
+            Aggiungi assenza
+        </button>
+
+        <hr>
+
+        <h3>Avvisi</h3>
+
+        <ul id="lista-avvisi">
+            <li>Domani verifica di storia.</li>
+        </ul>
+
+        <button onclick="aggiungiAvviso()">
+            Aggiungi avviso
+        </button>
+
+        <button onclick="eliminaPrimoAvviso()">
+            Elimina primo avviso
+        </button>
+
+        <hr>
+
+        <h3>Note disciplinari</h3>
+
+        <ul id="lista-note">
+        </ul>
+
+        <button onclick="aggiungiNota()">
+            Aggiungi nota disciplinare
+        </button>
+
+        <button onclick="eliminaUltimaNota()">
+            Elimina ultima nota
+        </button>
+
+        <hr>
+
+        <h3>Ricevimento docenti</h3>
+
+        <ul id="lista-ricevimenti">
+        </ul>
+
+        <button onclick="aggiungiDisponibilita()">
+            Aggiungi disponibilità
+        </button>
+
+        <button onclick="prenotaRicevimento()">
+            Prenota ricevimento
+        </button>
+
+        <button onclick="confermaRicevimento()">
+            Conferma ricevimento
+        </button>
+
+        <button onclick="annullaRicevimento()">
+            Annulla ricevimento
+        </button>
+
+        <hr>
+
+        <h3>Voti scrutinio</h3>
+
+        <ul id="lista-scrutinio">
+        </ul>
+
+        <p id="media-scrutinio">
+            Media scrutinio: ---
+        </p>
+
+        <button onclick="aggiungiVotoScrutinio()">
+            Aggiungi voto scrutinio
+        </button>
+
+        <button onclick="eliminaUltimoVotoScrutinio()">
+            Elimina ultimo voto scrutinio
+        </button>
+
+        <button onclick="calcolaScrutinioFinale()">
+            Calcola scrutinio finale
+        </button>
+
+        <hr>
+
+        <h3>Esito finale</h3>
+
+        <p id="esito-finale">
+            Esito finale: ---
+        </p>
+
+        <button onclick="calcolaEsitoFinale()">
+            Calcola esito finale
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
-</html> 
-<h3>Note disciplinari</h3>
 
-<ul id="lista-note">
-</ul>
-
-<button onclick="aggiungiNota()">
-    Aggiungi nota disciplinare
-</button>
-<button onclick="eliminaUltimaNota()">
-    Elimina ultima nota
-</button>
-<h3>Ricevimento docenti</h3>
-
-<ul id="lista-ricevimenti">
-</ul>
-
-<button onclick="aggiungiDisponibilita()">
-    Aggiungi disponibilità
-</button>
-
-<button onclick="prenotaRicevimento()">
-    Prenota ricevimento
-</button>
-
-<button onclick="confermaRicevimento()">
-    Conferma ricevimento
-</button>
-
-<button onclick="annullaRicevimento()">
-    Annulla ricevimento
-</button>
-<h3>Voti scrutinio</h3>
-
-<ul id="lista-scrutinio">
-</ul>
-
-<p id="media-scrutinio">Media scrutinio: ---</p>
-
-<p id="esito-finale">Esito finale: ---</p>
-
-<button onclick="aggiungiVotoScrutinio()">
-    Aggiungi voto scrutinio
-</button>
-
-<button onclick="eliminaUltimoVotoScrutinio()">
-    Elimina ultimo voto scrutinio
-</button>
-
-<button onclick="calcolaScrutinioFinale()">
-    Calcola scrutinio finale
-    <h3>Esito finale</h3>
-
-    <p id="esito-finale">
-    Esito finale: ---
-    </p>
-    
-    <button onclick="calcolaEsitoFinale()">
-        Calcola esito finale
-    </button>
-    
+</html>
