@@ -484,47 +484,9 @@ function calcolaScrutinioFinale() {
         document.getElementById(
             "esito-finale"
         ).textContent
-     );
-     let ricevimentiSalvati =
-     localStorage.getItem("ricevimenti");
- 
- if (ricevimentiSalvati) {
- 
-     document.getElementById(
-         "lista-ricevimenti"
-     ).innerHTML = ricevimentiSalvati;
- }
- 
- let scrutinioSalvato =
-     localStorage.getItem("scrutinio");
- 
- if (scrutinioSalvato) {
- 
-     document.getElementById(
-         "lista-scrutinio"
-     ).innerHTML = scrutinioSalvato;
- }
- 
- let mediaScrutinio =
-     localStorage.getItem("mediaScrutinio");
- 
- if (mediaScrutinio) {
- 
-     document.getElementById(
-         "media-scrutinio"
-     ).textContent = mediaScrutinio;
- }
- 
- let esitoFinale =
-     localStorage.getItem("esitoFinale");
- 
- if (esitoFinale) {
- 
-     document.getElementById(
-         "esito-finale"
-     ).textContent = esitoFinale;
- }
-}
+     ); }
+
+     
 
 window.onload = function() {
 
