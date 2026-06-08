@@ -68,6 +68,7 @@ function aggiungiVoto() {
             materia + ": " + voto;
 
         lista.appendChild(li);
+        localStorage.setItem("lista-voti", lista.innerHTML);
     }
 }
 
@@ -130,3 +131,16 @@ function calcolaMediaVoti() {
         "Media voti: " +
         media.toFixed(2);
 }
+window.onload = function() {
+
+    let votiSalvati =
+        localStorage.getItem("lista-voti");
+
+    if (votiSalvati) {
+
+        document.getElementById(
+            "lista-voti"
+        ).innerHTML = votiSalvati;
+
+    }
+};
