@@ -131,6 +131,116 @@ function calcolaMediaVoti() {
         "Media voti: " +
         media.toFixed(2);
 }
+// ASSENZE
+
+function aggiungiAssenza() {
+
+    let elementoAssenze =
+        document.getElementById("assenze");
+
+    if (!elementoAssenze) return;
+
+    let numero =
+        parseInt(elementoAssenze.textContent) || 0;
+
+    numero++;
+
+    elementoAssenze.textContent =
+        numero + " assenze";
+
+    localStorage.setItem(
+        "assenze",
+        elementoAssenze.textContent
+    );
+}
+
+// AVVISI
+
+function aggiungiAvviso() {
+
+    let testo =
+        prompt("Scrivi l'avviso:");
+
+    if (testo) {
+
+        let lista =
+            document.getElementById("lista-avvisi");
+
+        let li =
+            document.createElement("li");
+
+        li.textContent = testo;
+
+        lista.appendChild(li);
+
+        localStorage.setItem(
+            "lista-avvisi",
+            lista.innerHTML
+        );
+    }
+}
+
+function eliminaPrimoAvviso() {
+
+    let lista =
+        document.getElementById("lista-avvisi");
+
+    if (lista.firstElementChild) {
+
+        lista.removeChild(
+            lista.firstElementChild
+        );
+
+        localStorage.setItem(
+            "lista-avvisi",
+            lista.innerHTML
+        );
+    }
+}
+
+// NOTE
+
+function aggiungiNota() {
+
+    let testo =
+        prompt("Scrivi la nota disciplinare:");
+
+    if (testo) {
+
+        let lista =
+            document.getElementById("lista-note");
+
+        let li =
+            document.createElement("li");
+
+        li.textContent = testo;
+
+        lista.appendChild(li);
+
+        localStorage.setItem(
+            "lista-note",
+            lista.innerHTML
+        );
+    }
+}
+
+function eliminaUltimaNota() {
+
+    let lista =
+        document.getElementById("lista-note");
+
+    if (lista.lastElementChild) {
+
+        lista.removeChild(
+            lista.lastElementChild
+        );
+
+        localStorage.setItem(
+            "lista-note",
+            lista.innerHTML
+        );
+    }
+}
 window.onload = function() {
 
     let votiSalvati =
