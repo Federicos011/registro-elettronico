@@ -38,7 +38,7 @@ function accedi() {
 
         document.getElementById("registro").style.display =
             "block";
-
+nascondiPulsantiDocente();
         alert("Benvenuti Alessio e Nives");
     }
 
@@ -264,5 +264,24 @@ function eliminaUltimaNota() {
             "lista-note",
             lista.innerHTML
         );
+    }
+}
+function nascondiPulsantiDocente() {
+
+    let pulsanti =
+        document.getElementsByTagName("button");
+
+    for (let i = 0; i < pulsanti.length; i++) {
+
+        if (
+            pulsanti[i].textContent.includes("Aggiungi") ||
+            pulsanti[i].textContent.includes("Elimina") ||
+            pulsanti[i].textContent.includes("Conferma") ||
+            pulsanti[i].textContent.includes("Annulla")
+        ) {
+
+            pulsanti[i].style.display = "none";
+
+        }
     }
 }
