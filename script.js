@@ -241,6 +241,291 @@ function eliminaUltimaNota() {
         );
     }
 }
+// =========================
+// RICEVIMENTO DOCENTI
+// =========================
+
+function aggiungiDisponibilita() {
+
+    let data = prompt("Data:");
+    let ora = prompt("Ora:");
+
+    if (data && ora) {
+
+        let lista =
+            document.getElementById(
+                "lista-ricevimenti"
+            );
+
+        let li =
+            document.createElement("li");
+
+        li.textContent =
+            data +
+            " - Ore " +
+            ora +
+            " | Stato: Libero";
+
+        lista.appendChild(li);
+
+        localStorage.setItem(
+            "ricevimenti",
+            lista.innerHTML
+        );
+    }
+}
+
+function prenotaRicevimento() {
+
+    let lista =
+        document.getElementById(
+            "lista-ricevimenti"
+        );
+
+    if (!lista.firstElementChild) {
+
+        alert(
+            "Nessuna disponibilità presente"
+        );
+
+        return;
+    }
+
+    let genitore =
+        prompt("Nome del genitore:");
+
+    let motivo =
+        prompt("Motivo del colloquio:");
+
+    lista.firstElementChild.textContent +=
+        " | Genitore: " +
+        genitore +
+        " | Motivo: " +
+        motivo +
+        " | Stato: Prenotato";
+
+    localStorage.setItem(
+        "ricevimenti",
+        lista.innerHTML
+    );
+}
+
+function confermaRicevimento() {
+
+    let lista =
+        document.getElementById(
+            "lista-ricevimenti"
+        );
+
+    if (lista.firstElementChild) {
+
+        lista.firstElementChild.textContent =
+            lista.firstElementChild.textContent.replace(
+                "Stato: Prenotato",
+                "Stato: Confermato"
+            );
+
+        localStorage.setItem(
+            "ricevimenti",
+            lista.innerHTML
+        );
+    }
+}
+
+function annullaRicevimento() {
+
+    let lista =
+        document.getElementById(
+            "lista-ricevimenti"
+        );
+
+    if (lista.firstElementChild) {
+
+        lista.firstElementChild.textContent =
+            lista.firstElementChild.textContent.replace(
+                "Stato: Prenotato",
+                "Stato: Annullato"
+            );
+
+        localStorage.setItem(
+            "ricevimenti",
+            lista.innerHTML
+        );
+    }
+}
+
+// =========================
+// VOTI SCRUTINIO
+// =========================
+
+function aggiungiVotoScrutinio() {
+
+    let materia =
+        prompt("Materia:");
+
+    let voto =
+        prompt("Voto scrutinio:");
+
+    if (materia && voto) {
+
+        let lista =
+            document.getElementById(
+                "lista-scrutinio"
+            );
+
+        let li =
+            document.createElement("li");
+
+        li.textContent =
+            materia + ": " + voto;
+
+        lista.appendChild(li);
+
+        localStorage.setItem(
+            "scrutinio",
+            lista.innerHTML
+        );
+    }
+}
+
+function eliminaUltimoVotoScrutinio() {
+
+    let lista =
+        document.getElementById(
+            "lista-scrutinio"
+        );
+
+    if (lista.lastElementChild) {
+
+        lista.removeChild(
+            lista.lastElementChild
+        );
+
+        localStorage.setItem(
+            "scrutinio",
+            lista.innerHTML
+        );
+    }
+}
+
+function calcolaScrutinioFinale() {
+
+    let lista =
+        document.getElementById(
+            "lista-scrutinio"
+        );
+
+    let voti =
+        lista.getElementsByTagName("li");
+
+    let somma = 0;
+    let numero = 0;
+
+    for (let i = 0; i < voti.length; i++) {
+
+        let testo =
+            voti[i].textContent;
+
+        let parti =
+            testo.split(":");
+
+        let voto =
+            parseFloat(parti[1]);
+
+        if (!isNaN(voto)) {
+
+            somma += voto;
+            numero++;
+        }
+    }
+
+    if (numero === 0) {
+
+        alert(
+            "Nessun voto di scrutinio"
+        );
+
+        return;
+    }
+
+    let media =
+        somma / numero;
+
+    document.getElementById(
+        "media-scrutinio"
+    ).textContent =
+        "Media scrutinio: " +
+        media.toFixed(2);
+
+    if (media >= 6) {
+
+        document.getElementById(
+            "esito-finale"
+        ).textContent =
+            "Esito finale: Ammesso";
+
+    } else {
+
+        document.getElementById(
+            "esito-finale"
+        ).textContent =
+            "Esito finale: Non ammesso";
+    }
+
+    localStorage.setItem(
+        "mediaScrutinio",
+        document.getElementById(
+            "media-scrutinio"
+        ).textContent
+    );
+
+    localStorage.setItem(
+        "esitoFinale",
+        document.getElementById(
+            "esito-finale"
+        ).textContent
+     );
+     let ricevimentiSalvati =
+     localStorage.getItem("ricevimenti");
+ 
+ if (ricevimentiSalvati) {
+ 
+     document.getElementById(
+         "lista-ricevimenti"
+     ).innerHTML = ricevimentiSalvati;
+ }
+ 
+ let scrutinioSalvato =
+     localStorage.getItem("scrutinio");
+ 
+ if (scrutinioSalvato) {
+ 
+     document.getElementById(
+         "lista-scrutinio"
+     ).innerHTML = scrutinioSalvato;
+ }
+ 
+ let mediaScrutinio =
+     localStorage.getItem("mediaScrutinio");
+ 
+ if (mediaScrutinio) {
+ 
+     document.getElementById(
+         "media-scrutinio"
+     ).textContent = mediaScrutinio;
+ }
+ 
+ let esitoFinale =
+     localStorage.getItem("esitoFinale");
+ 
+ if (esitoFinale) {
+ 
+     document.getElementById(
+         "esito-finale"
+     ).textContent = esitoFinale;
+ }
+}
+
 window.onload = function() {
 
     let votiSalvati =
