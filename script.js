@@ -102,43 +102,43 @@ function aggiungiAssenza() {
     elementoAssenze.textContent =
         numero + " assenze";
 }
-function aggiungiAvviso()
-let ruolo = "";
+function aggiungiAvviso() {
+    let ruolo = "";
 
-function accedi() {
-
-    let utente = document.getElementById("utente").value;
-    let password = document.getElementById("password").value;
-
-    if (
-        utente === "maestro Fede" &&
-        password === "Federico"
-    ) {
-
-        ruolo = "docente";
-
-        document.getElementById("login").style.display = "none";
-        document.getElementById("registro").style.display = "block";
-
-        alert(" Benvenuto Federico");
+    function accedi() {
+    
+        let utente = document.getElementById("utente").value;
+        let password = document.getElementById("password").value;
+    
+        if (
+            utente === "maestro Fede" &&
+            password === "Federico"
+        ) {
+    
+            ruolo = "docente";
+    
+            document.getElementById("login").style.display = "none";
+            document.getElementById("registro").style.display = "block";
+    
+            alert("Benvenuto Federico");
+        }
+    
+        else if (
+            utente === "Genitori" &&
+            password === "1234"
+        ) {
+    
+            ruolo = "genitore";
+    
+            document.getElementById("login").style.display = "none";
+            document.getElementById("registro").style.display = "block";
+    
+            alert("Benvenuti Alessio e Nives");
+        }
+    
+        else {
+    
+            alert("Utente o password errati");
+    
+        }
     }
-
-    else if (
-        utente === "Genitori" &&
-        password === "1234"
-    ) {
-
-        ruolo = "genitore";
-
-        document.getElementById("login").style.display = "none";
-        document.getElementById("registro").style.display = "block";
-
-        alert("Benvenuti Alessio e Nives");
-    }
-
-    else {
-
-        alert("Utente o password errati");
-
-    }
-}
