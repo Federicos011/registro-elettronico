@@ -137,151 +137,71 @@ window.onload = function() {
         localStorage.getItem("lista-voti");
 
     if (votiSalvati) {
-
         document.getElementById(
             "lista-voti"
         ).innerHTML = votiSalvati;
-
-    }
-};
-// ASSENZE
-
-function aggiungiAssenza() {
-
-    let elementoAssenze =
-        document.getElementById("assenze");
-
-    if (!elementoAssenze) {
-        return;
     }
 
-    let numero =
-        parseInt(elementoAssenze.textContent) || 0;
+    let ricevimentiSalvati =
+        localStorage.getItem("ricevimenti");
 
-    numero++;
-
-    elementoAssenze.textContent =
-        numero + " assenze";
-
-    localStorage.setItem(
-        "assenze",
-        elementoAssenze.textContent
-    );
-}
-
-// AVVISI
-
-function aggiungiAvviso() {
-
-    let testo =
-        prompt("Scrivi l'avviso:");
-
-    if (testo) {
-
-        let lista =
-            document.getElementById(
-                "lista-avvisi"
-            );
-
-        let li =
-            document.createElement("li");
-
-        li.textContent = testo;
-
-        lista.appendChild(li);
-
-        localStorage.setItem(
-            "lista-avvisi",
-            lista.innerHTML
-        );
+    if (ricevimentiSalvati) {
+        document.getElementById(
+            "lista-ricevimenti"
+        ).innerHTML = ricevimentiSalvati;
     }
-}
 
-function eliminaPrimoAvviso() {
+    let scrutinioSalvato =
+        localStorage.getItem("scrutinio");
 
-    let lista =
+    if (scrutinioSalvato) {
+        document.getElementById(
+            "lista-scrutinio"
+        ).innerHTML = scrutinioSalvato;
+    }
+
+    let mediaScrutinio =
+        localStorage.getItem("mediaScrutinio");
+
+    if (mediaScrutinio) {
+        document.getElementById(
+            "media-scrutinio"
+        ).textContent = mediaScrutinio;
+    }
+
+    let esitoFinale =
+        localStorage.getItem("esitoFinale");
+
+    if (esitoFinale) {
+        document.getElementById(
+            "esito-finale"
+        ).textContent = esitoFinale;
+    }
+
+    let assenzeSalvate =
+        localStorage.getItem("assenze");
+
+    if (assenzeSalvate) {
+        document.getElementById(
+            "assenze"
+        ).textContent = assenzeSalvate;
+    }
+
+    let avvisiSalvati =
+        localStorage.getItem("lista-avvisi");
+
+    if (avvisiSalvati) {
         document.getElementById(
             "lista-avvisi"
-        );
-
-    if (lista.firstElementChild) {
-
-        lista.removeChild(
-            lista.firstElementChild
-        );
-
-        localStorage.setItem(
-            "lista-avvisi",
-            lista.innerHTML
-        );
+        ).innerHTML = avvisiSalvati;
     }
-}
 
-// NOTE DISCIPLINARI
+    let noteSalvate =
+        localStorage.getItem("lista-note");
 
-function aggiungiNota() {
-
-    let testo =
-        prompt(
-            "Scrivi la nota disciplinare:"
-        );
-
-    if (testo) {
-
-        let lista =
-            document.getElementById(
-                "lista-note"
-            );
-
-        let li =
-            document.createElement("li");
-
-        li.textContent = testo;
-
-        lista.appendChild(li);
-
-        localStorage.setItem(
-            "lista-note",
-            lista.innerHTML
-        );
-    }
-}
-
-function eliminaUltimaNota() {
-
-    let lista =
+    if (noteSalvate) {
         document.getElementById(
             "lista-note"
-        );
-
-    if (lista.lastElementChild) {
-
-        lista.removeChild(
-            lista.lastElementChild
-        );
-
-        localStorage.setItem(
-            "lista-note",
-            lista.innerHTML
-        );
+        ).innerHTML = noteSalvate;
     }
-}
-function nascondiPulsantiDocente() {
-
-    let pulsanti =
-        document.getElementsByTagName("button");
-
-    for (let i = 0; i < pulsanti.length; i++) {
-
-        if (
-            pulsanti[i].textContent.includes("Aggiungi") ||
-            pulsanti[i].textContent.includes("Elimina") ||
-            pulsanti[i].textContent.includes("Conferma") ||
-            pulsanti[i].textContent.includes("Annulla")
-        ) {
-
-            pulsanti[i].style.display = "none";
-
-        }
-    }
-}
+};
