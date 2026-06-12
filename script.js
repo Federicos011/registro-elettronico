@@ -1,3 +1,23 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDGMjgwqqo_Vod21yRk05JZ7Xn5TA7eFvE",
+  authDomain: "registro-elettronico-ad478.firebaseapp.com",
+  projectId: "registro-elettronico-ad478",
+  storageBucket: "registro-elettronico-ad478.firebasestorage.app",
+  messagingSenderId: "656034907380",
+  appId: "1:656034907380:web:4d578a044f13224273caa1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app); 
 let ruolo = "";
 
 // LOGIN
