@@ -562,3 +562,156 @@ window.onload = function() {
         ).innerHTML = noteSalvate;
     }
 };
+// =========================
+// ESPORTA BACKUP
+// =========================
+
+function esportaDati() {
+
+    let dati = {
+
+        voti:
+            localStorage.getItem("lista-voti"),
+
+        assenze:
+            localStorage.getItem("assenze"),
+
+        avvisi:
+            localStorage.getItem("lista-avvisi"),
+
+        note:
+            localStorage.getItem("lista-note"),
+
+        ricevimenti:
+            localStorage.getItem("ricevimenti"),
+
+        scrutinio:
+            localStorage.getItem("scrutinio"),
+
+        mediaScrutinio:
+            localStorage.getItem("mediaScrutinio"),
+
+        esitoFinale:
+            localStorage.getItem("esitoFinale")
+    };
+
+    let testo =
+        JSON.stringify(dati, null, 2);
+
+    let blob =
+        new Blob(
+            [testo],
+            { type: "application/json" }
+        );
+
+    let link =
+        document.createElement("a");
+
+    link.href =
+        URL.createObjectURL(blob);
+
+    link.download =
+        "backup-registro.json";
+
+    link.click();
+
+    alert("Backup esportato con successo");
+}
+
+// =========================
+// IMPORTA BACKUP
+// =========================
+
+function importaDati(event) {
+
+    let file =
+        event.target.files[0];
+
+    if (!file) return;
+
+    let reader =
+        new FileReader();
+
+    reader.onload =
+        function(e) {
+
+        let dati =
+            JSON.parse(
+                e.target.result
+            );
+
+        if (dati.voti)
+            localStorage.setItem(
+                "lista-voti",
+                dati.voti
+            );
+
+        if (dati.assenze)
+            localStorage.setItem(
+                "assenze",
+                dati.assenze
+            );
+
+        if (dati.avvisi)
+            localStorage.setItem(
+                "lista-avvisi",
+                dati.avvisi
+            );
+
+        if (dati.note)
+            localStorage.setItem(
+                "lista-note",
+                dati.note
+            );
+
+        if (dati.ricevimenti)
+            localStorage.setItem(
+                "ricevimenti",
+                dati.ricevimenti
+            );
+
+        if (dati.scrutinio)
+            localStorage.setItem(
+                "scrutinio",
+                dati.scrutinio
+            );
+
+        if (dati.mediaScrutinio)
+            localStorage.setItem(
+                "mediaScrutinio",
+                dati.mediaScrutinio
+            );
+
+        if (dati.esitoFinale)
+            localStorage.setItem(
+                "esitoFinale",
+                dati.esitoFinale
+            );
+
+        alert(
+            "Backup importato con successo. Aggiorna la pagina."
+        );
+    };
+
+    reader.readAsText(file);
+}
+
+// =========================
+// CANCELLA TUTTO
+// =========================
+
+function cancellaDati() {
+
+    let conferma =
+        confirm(
+            "Vuoi davvero cancellare tutti i dati?"
+        );
+
+    if (!conferma) return;
+
+    localStorage.clear();
+
+    alert(
+        "Tutti i dati sono stati cancellati. Aggiorna la pagina."
+    );
+}

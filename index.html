@@ -159,3 +159,22 @@
 </body>
 
 </html>
+<button onclick="esportaDati()">
+    Esporta Backup
+</button>
+
+<button onclick="document.getElementById('file-backup').click()">
+    Importa Backup
+</button>
+
+<input
+    type="file"
+    id="file-backup"
+    accept=".json"
+    onchange="importaDati(event)"
+    style="display:none;"
+>
+
+<button onclick="cancellaDati()">
+    Cancella Tutti i Dati
+</button>
