@@ -23,6 +23,8 @@ let ruolo = "";
 // LOGIN
 
 function accedi() {
+alert ("test login")
+}
 
     let utente =
         document.getElementById("utente").value;
