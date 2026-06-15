@@ -1,181 +1,191 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education Software</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #1565c0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        #login {
+            max-width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #registro {
+            display: none;
+        }
+
+        nav {
+            background-color: #1976d2;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        section {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .sezione {
+            display: none;
+        }
+
+        #home {
+            display: block;
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <div id="login">
+<header>
+    <h1>Education Software</h1>
+    <h3>Studente: Giulio Cucinotta</h3>
+</header>
 
-        <h2>Accesso Registro Elettronico</h2>
+<div id="login">
 
-        <input type="text" id="utente" placeholder="Utente">
+    <h2>Accesso Registro</h2>
 
-        <br><br>
-
-        <input type="text" id="password" placeholder="Password">
-
-        <br><br>
-
-        <button onclick="accedi()">Accedi</button>
-
-    </div>
-
-    <div id="registro" style="display:none;">
-
-        <h1>Registro Elettronico</h1>
-
-        <h2 id="nome-studente">Studente: Giulio Cucinotta</h2>
-
-        <p>Classe: 3G</p>
-
-        <p>Anno scolastico: 2025/2026</p>
-
-        <hr>
-
-        <h3>Voti</h3>
-
-        <ul id="lista-voti">
-            <li>Matematica: 8</li>
-            <li>Italiano: 7</li>
-        </ul>
-
-        <button onclick="aggiungiVoto()">Aggiungi voto</button>
-        <button onclick="eliminaUltimoVoto()">Elimina ultimo voto</button>
-
-        <p id="media-voti">Media voti: ---</p>
-
-        <button onclick="calcolaMediaVoti()">
-            Calcola media voti
-        </button>
-
-        <hr>
-
-        <h3>Assenze</h3>
-
-        <p id="assenze">3 assenze</p>
-
-        <button onclick="aggiungiAssenza()">
-            Aggiungi assenza
-        </button>
-
-        <hr>
-
-        <h3>Avvisi</h3>
-
-        <ul id="lista-avvisi">
-            <li>Domani verifica di storia.</li>
-        </ul>
-
-        <button onclick="aggiungiAvviso()">
-            Aggiungi avviso
-        </button>
-
-        <button onclick="eliminaPrimoAvviso()">
-            Elimina primo avviso
-        </button>
-
-        <hr>
-
-        <h3>Note disciplinari</h3>
-
-        <ul id="lista-note">
-        </ul>
-
-        <button onclick="aggiungiNota()">
-            Aggiungi nota disciplinare
-        </button>
-
-        <button onclick="eliminaUltimaNota()">
-            Elimina ultima nota
-        </button>
-
-        <hr>
-
-        <h3>Ricevimento docenti</h3>
-
-        <ul id="lista-ricevimenti">
-        </ul>
-
-        <button onclick="aggiungiDisponibilita()">
-            Aggiungi disponibilità
-        </button>
-
-        <button onclick="prenotaRicevimento()">
-            Prenota ricevimento
-        </button>
-
-        <button onclick="confermaRicevimento()">
-            Conferma ricevimento
-        </button>
-
-        <button onclick="annullaRicevimento()">
-            Annulla ricevimento
-        </button>
-
-        <hr>
-
-        <h3>Voti scrutinio</h3>
-
-        <ul id="lista-scrutinio">
-        </ul>
-
-        <p id="media-scrutinio">
-            Media scrutinio: ---
-        </p>
-
-        <button onclick="aggiungiVotoScrutinio()">
-            Aggiungi voto scrutinio
-        </button>
-
-        <button onclick="eliminaUltimoVotoScrutinio()">
-            Elimina ultimo voto scrutinio
-        </button>
-
-        <button onclick="calcolaScrutinioFinale()">
-            Calcola scrutinio finale
-        </button>
-
-        <hr>
-
-        <h3>Esito finale</h3>
-
-        <p id="esito-finale">
-            Esito finale: ---
-        </p>
-
-        <button onclick="calcolaEsitoFinale()">
-            Calcola esito finale
-        </button>
-
-    </div>
-
-    <button onclick="esportaDati()">
-        Esporta Backup
-    </button>
-    
-    <button onclick="document.getElementById('file-backup').click()">
-        Importa Backup
-    </button>
-    
     <input
-        type="file"
-        id="file-backup"
-        accept=".json"
-        onchange="importaDati(event)"
-        style="display:none;"
-    >
-    
-    <button onclick="cancellaDati()">
-        Cancella Tutti i Dati
+        type="text"
+        id="utente"
+        placeholder="Utente">
+
+    <br><br>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password">
+
+    <br><br>
+
+    <button onclick="accedi()">
+        Accedi
     </button>
 
-    <script src="script.js"></script>
+</div>
 
-</body>
+<div id="registro">
 
-</html>
+<nav>
+
+<button onclick="mostraSezione('home')">
+🏠 Home
+</button>
+
+<button onclick="mostraSezione('profilo')">
+👤 Profilo Studente
+</button>
+
+<button onclick="mostraSezione('voti')">
+📚 Voti
+</button>
+
+<button onclick="mostraSezione('grafico')">
+📈 Grafico Voti
+</button>
+
+<button onclick="mostraSezione('assenze')">
+❌ Assenze
+</button>
+
+<button onclick="mostraSezione('avvisi')">
+📢 Avvisi
+</button>
+
+<button onclick="mostraSezione('note')">
+📝 Note
+</button>
+
+<button onclick="mostraSezione('notifiche')">
+🔔 Notifiche
+</button>
+
+<button onclick="mostraSezione('ricevimenti')">
+👨‍🏫 Ricevimenti
+</button>
+
+<button onclick="mostraSezione('scrutinio')">
+📋 Scrutinio
+</button>
+
+<button onclick="mostraSezione('backup')">
+💾 Backup
+</button>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
+
+</nav>
+
+<section
+    id="home"
+    class="sezione">
+
+<h2>Benvenuto in Education Software</h2>
+
+<p>
+Registro elettronico di Giulio Cucinotta.
+</p>
+
+</section>
+
+<section
+    id="profilo"
+    class="sezione">
+
+<h2>👤 Profilo Studente</h2>
+
+<p id="profilo-nome">
+Nome: Giulio Cucinotta
+</p>
+
+<p id="profilo-media">
+Media voti: --
+</p>
+
+<p id="profilo-assenze">
+Assenze: --
+</p>
+
+<p id="profilo-esito">
+Esito finale: --
+</p>
+
+</section>
