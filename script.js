@@ -20,11 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);/*
 let ruolo = "";
 
-// LOGIN
-
 function accedi() {
-alert ("test login")
-}
 
     let utente =
         document.getElementById("utente").value;
@@ -60,7 +56,9 @@ alert ("test login")
 
         document.getElementById("registro").style.display =
             "block";
-nascondiPulsantiDocente();
+
+        nascondiPulsantiDocente();
+
         alert("Benvenuti Alessio e Nives");
     }
 
@@ -70,7 +68,6 @@ nascondiPulsantiDocente();
 
     }
 }
-
 // VOTI
 
 function aggiungiVoto() {
