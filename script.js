@@ -35,7 +35,8 @@ function accedi() {
 
         document.getElementById("registro").style.display =
             "block";
-
+            
+mostraSezione("home");
         nascondiPulsantiDocente();
 
         alert("Benvenuti Alessio e Nives");
@@ -712,4 +713,44 @@ function cancellaDati() {
     alert(
         "Tutti i dati sono stati cancellati. Aggiorna la pagina."
     );
+}
+function mostraSezione(id) {
+
+    let sezioni = document.getElementsByClassName(
+        "sezione"
+    );
+
+    for (let i = 0; i < sezioni.length; i++) {
+
+        sezioni[i].style.display = "none";
+
+    }
+
+    let sezione =
+        document.getElementById(id);
+
+    if (sezione) {
+
+        sezione.style.display = "block";
+
+    }
+}
+function logout() {
+
+    document.getElementById(
+        "registro"
+    ).style.display = "none";
+
+    document.getElementById(
+        "login"
+    ).style.display = "block";
+
+    document.getElementById(
+        "utente"
+    ).value = "";
+
+    document.getElementById(
+        "password"
+    ).value = "";
+
 }
