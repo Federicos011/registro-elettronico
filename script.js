@@ -35,7 +35,7 @@ function accedi() {
 
         document.getElementById("registro").style.display =
             "block";
-            
+
 mostraSezione("home");
         nascondiPulsantiDocente();
 
@@ -135,22 +135,22 @@ function calcolaMediaVoti() {
 function aggiungiAssenza() {
 
     let elementoAssenze =
-        document.getElementById("assenze");
+<section id="assenze" class="sezione"></section>
 
-    if (!elementoAssenze) return;
+if (!elementoAssenze) return;
 
-    let numero =
-        parseInt(elementoAssenze.textContent) || 0;
+let numero =
+    parseInt(elementoAssenze.textContent) || 0;
 
-    numero++;
+numero++;
 
-    elementoAssenze.textContent =
-        numero + " assenze";
+elementoAssenze.textContent =
+    numero + " assenze";
 
-    localStorage.setItem(
-        "assenze",
-        elementoAssenze.textContent
-    );
+localStorage.setItem(
+    "assenze",
+    elementoAssenze.textContent
+);
 }
 
 // AVVISI
