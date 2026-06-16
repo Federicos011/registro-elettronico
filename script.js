@@ -135,7 +135,7 @@ function calcolaMediaVoti() {
 function aggiungiAssenza() {
 
     let elementoAssenze =
-<section id="assenze" class="sezione"></section>
+    document.getElementById("assenze");
 
 if (!elementoAssenze) return;
 
