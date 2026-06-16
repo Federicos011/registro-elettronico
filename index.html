@@ -189,3 +189,189 @@ Esito finale: --
 </p>
 
 </section>
+<section
+    id="voti"
+    class="sezione">
+
+<h2>📚 Voti</h2>
+
+<button onclick="aggiungiVoto()">
+Aggiungi Voto
+</button>
+
+<button onclick="eliminaUltimoVoto()">
+Elimina Ultimo Voto
+</button>
+
+<button onclick="calcolaMediaVoti()">
+Calcola Media
+</button>
+
+<h3 id="media-voti">
+Media voti: --
+</h3>
+
+<ul id="lista-voti">
+</ul>
+
+</section>
+
+<section
+    id="grafico"
+    class="sezione">
+
+<h2>📈 Grafico Voti</h2>
+
+<canvas
+    id="graficoVoti"
+    width="400"
+    height="200">
+</canvas>
+
+</section>
+
+<section
+    id="assenze"
+    class="sezione">
+
+<h2>❌ Assenze</h2>
+
+<button onclick="aggiungiAssenza()">
+Aggiungi Assenza
+</button>
+
+<p id="conteggio-assenze">
+0 assenze
+</p>
+
+</section>
+
+<section
+    id="avvisi"
+    class="sezione">
+
+<h2>📢 Avvisi</h2>
+
+<button onclick="aggiungiAvviso()">
+Aggiungi Avviso
+</button>
+
+<button onclick="eliminaPrimoAvviso()">
+Elimina Primo Avviso
+</button>
+
+<ul id="lista-avvisi">
+</ul>
+
+</section>
+
+<section
+    id="note"
+    class="sezione">
+
+<h2>📝 Note Disciplinari</h2>
+
+<button onclick="aggiungiNota()">
+Aggiungi Nota
+</button>
+
+<button onclick="eliminaUltimaNota()">
+Elimina Ultima Nota
+</button>
+
+<ul id="lista-note">
+</ul>
+
+</section>
+
+<section
+    id="notifiche"
+    class="sezione">
+
+<h2>🔔 Notifiche</h2>
+
+<p id="numero-notifiche">
+0 notifiche non lette
+</p>
+
+<button onclick="segnaNotificheLette()">
+Segna come lette
+</button>
+
+<ul id="lista-notifiche">
+</ul>
+
+</section>
+<section id="ricevimenti" class="sezione">
+
+    <h2>👨‍🏫 Ricevimento Genitori</h2>
+    
+    <ul id="lista-ricevimenti"></ul>
+    
+    <button id="btn-aggiungi-ricevimento" onclick="aggiungiDisponibilita()">
+    Aggiungi disponibilità
+    </button>
+    
+    <button id="btn-prenota-ricevimento" onclick="prenotaRicevimento()">
+    Prenota ricevimento
+    </button>
+    
+    <button id="btn-conferma-ricevimento" onclick="confermaRicevimento()">
+    Conferma ricevimento
+    </button>
+    
+    <button id="btn-annulla-ricevimento" onclick="annullaRicevimento()">
+    Annulla ricevimento
+    </button>
+    
+    </section>
+    
+    <section id="profilo-studente" class="sezione">
+    
+    <h2>🎓 Profilo Studente</h2>
+    
+    <p>
+    Nome studente: Giulio Cucinotta
+    </p>
+    
+    <p id="media-generale">
+    Media generale: --
+    </p>
+    
+    <p id="totale-assenze">
+    Assenze: 0
+    </p>
+    
+    </section>
+    
+    <section id="backup" class="sezione">
+    
+    <h2>💾 Backup Dati</h2>
+    
+    <button onclick="esportaDati()">
+    Esporta Backup
+    </button>
+    
+    <button onclick="document.getElementById('file-backup').click()">
+    Importa Backup
+    </button>
+    
+    <input
+    type="file"
+    id="file-backup"
+    accept=".json"
+    onchange="importaDati(event)"
+    style="display:none;">
+    
+    <button onclick="cancellaDati()">
+    Cancella Tutti i Dati
+    </button>
+    
+    </section>
+    
+    </div>
+    
+    <script src="script.js"></script>
+    
+    </body>
+    </html>
