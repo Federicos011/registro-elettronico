@@ -539,7 +539,7 @@ window.onload = function() {
 
     if (assenzeSalvate) {
         document.getElementById(
-            "assenze"
+            "conteggio-assenze"
         ).textContent = assenzeSalvate;
     }
 
@@ -753,4 +753,28 @@ function logout() {
         "password"
     ).value = "";
 
+}
+function aggiungiAssenza() {
+
+    let elementoAssenze =
+        document.getElementById(
+            "conteggio-assenze"
+        );
+
+    if (!elementoAssenze) return;
+
+    let numero =
+        parseInt(
+            elementoAssenze.textContent
+        ) || 0;
+
+    numero++;
+
+    elementoAssenze.textContent =
+        numero + " assenze";
+
+    localStorage.setItem(
+        "assenze",
+        elementoAssenze.textContent
+    );
 }
