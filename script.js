@@ -537,6 +537,7 @@ window.onload = function() {
     let assenzeSalvate =
         localStorage.getItem("assenze");
 
+        alert("Assenze salvate: " + assenzeSalvate);
     if (assenzeSalvate) {
         document.getElementById(
             "conteggio-assenze"
