@@ -489,6 +489,7 @@ function calcolaScrutinioFinale() {
 
 window.onload = function() {
 
+    alert("Pagina caricata");
     let votiSalvati =
         localStorage.getItem("lista-voti");
 
