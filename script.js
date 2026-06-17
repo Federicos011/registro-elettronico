@@ -1,3 +1,4 @@
+alert("SCRIPT CARICATO");
 let ruolo = "";
 function accedi() {
 
